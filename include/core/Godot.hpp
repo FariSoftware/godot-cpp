@@ -40,13 +40,14 @@ public:                                                                         
 	};                                                                                                                                              \
 	inline static Name *_new() {                                                                                                                    \
 		godot::NativeScript *script = godot::NativeScript::_new();                                                                                  \
-		script->set_library(godot::get_wrapper<godot::GDNativeLibrary>((godot_object *)godot::gdnlib));                                             \
+		Ref<GDNativeLibrary> library(godot::get_wrapper<godot::GDNativeLibrary>((godot_object *)godot::gdnlib));                                    \
+		script->set_library(library);                                                                                                               \
 		script->set_class_name(#Name);                                                                                                              \
 		Name *instance = godot::as<Name>(script->new_());                                                                                           \
 		return instance;                                                                                                                            \
 	}                                                                                                                                               \
-	inline static size_t ___get_id() { return typeid(Name).hash_code(); }                                                                          \
-	inline static size_t ___get_base_id() { return typeid(Base).hash_code(); }                                                                     \
+	inline static size_t ___get_id() { return typeid(Name).hash_code(); }                                                                           \
+	inline static size_t ___get_base_id() { return typeid(Base).hash_code(); }                                                                      \
 	inline static const char *___get_base_type_name() { return Base::___get_class_name(); }                                                         \
 	inline static Object *___get_from_variant(godot::Variant a) { return (godot::Object *)godot::as<Name>(godot::Object::___get_from_variant(a)); } \
                                                                                                                                                     \
@@ -60,7 +61,8 @@ public:                                                                         
 	};                                                                                                                                              \
 	inline static Name *_new() {                                                                                                                    \
 		godot::NativeScript *script = godot::NativeScript::_new();                                                                                  \
-		script->set_library(godot::get_wrapper<godot::GDNativeLibrary>((godot_object *)godot::gdnlib));                                             \
+		Ref<GDNativeLibrary> library(godot::get_wrapper<godot::GDNativeLibrary>((godot_object *)godot::gdnlib));                                    \
+		script->set_library(library);                                                                                                               \
 		script->set_class_name(#Name);                                                                                                              \
 		Name *instance = godot::as<Name>(script->new_());                                                                                           \
 		return instance;                                                                                                                            \
